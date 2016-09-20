@@ -1,20 +1,19 @@
 (ns clj-ldap.test.server
   "An embedded ldap server for unit testing"
+  (:import
+    [java.util HashSet]
+    [net.sf.ehcache Cache]
+    [net.sf.ehcache.config CacheConfiguration]
+    [org.apache.directory.api.ldap.schema.manager.impl DefaultSchemaManager]
+    [org.apache.directory.server.core DefaultDirectoryService]
+    [org.apache.directory.server.core.partition.impl.btree.jdbm
+     JdbmPartition
+     JdbmIndex]
+    [org.apache.directory.server.ldap LdapServer]
+    [org.apache.directory.server.ldap.handlers.extended StartTlsHandler]
+    [org.apache.directory.server.protocol.shared.transport TcpTransport])
   (:require [clj-ldap.client :as ldap]
-            [fs.core :as fs])
-  (:import [org.apache.directory.server.core
-            DefaultDirectoryService
-            DirectoryService])
-  (:import [org.apache.directory.server.ldap
-            LdapServer])
-  (:import [org.apache.directory.server.ldap.handlers.extended
-            StartTlsHandler])
-  (:import [org.apache.directory.server.protocol.shared.transport
-            TcpTransport])
-  (:import [java.util HashSet])
-  (:import [org.apache.directory.server.core.partition.impl.btree.jdbm
-            JdbmPartition
-            JdbmIndex]))
+            [fs.core :as fs]))
 
 (defonce server (atom nil))
 
