@@ -3,10 +3,14 @@
   :url "https://github.com/puppetlabs/clj-ldap"
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [com.unboundid/unboundid-ldapsdk "3.1.1"]]
-  :profiles {:dev {:dependencies [[jline "0.9.94"]
-                                  [org.apache.directory.server/apacheds-all "1.5.5"]
+  :profiles {:dev {:dependencies [[ch.qos.logback/logback-classic "1.1.7"]
+                                  [ch.qos.logback/logback-core "1.1.7"]
+                                  [jline "0.9.94"]
                                   [fs "1.1.2"]
-                                  [org.slf4j/slf4j-simple "1.5.6"]]}}
+                                  [org.apache.directory.server/apacheds-service "2.0.0-M23"]
+                                  [org.apache.directory.api/api-ldap-schema-converter "1.0.0-RC1"]
+                                  [org.apache.directory.api/api-ldap-schema-converter "1.0.0-RC1"]
+                                  [org.slf4j/slf4j-api "1.7.21"]]}}
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/clojars_jenkins_username

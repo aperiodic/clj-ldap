@@ -124,7 +124,7 @@
 
 (deftest test-modify-add
   (is (= (ldap/modify *conn* (:dn person-a*)
-                      {:add {:objectClass "residentialperson"
+                      {:add {:objectClass "residentialPerson"
                              :l "Hollywood"}})
          success*))
   (is (= (ldap/modify
